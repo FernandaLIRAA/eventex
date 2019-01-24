@@ -45,48 +45,48 @@ import random
 import sys
 from pprint import pprint
 
+
 def mimic_dict(filename):
-  """Returns mimic dict mapping each word to list of words which follow it."""
-  with open(filename) as f:
-      words = f.read().split()
+    """Returns mimic dict mapping each word to list of words which follow it."""
+    with open(filename) as f:
+        words = f.read().split()
 
-  first, last, empty = words[0], words[-1], ''
+    first, last, empty = words[0], words[-1], ''
 
-  d = {
-      empty: [first],
-      last: [empty],
+    d = {
+        empty: [first],
+        last: [empty],
     }
 
-  for w, next_ in zip(
-      words[:-1], words[1:]):
-      if w not in d:
-        d[w] = []
-      d[w].append(next_)
-      return d
+    for w, next_ in zip(words[:-1], words[1:]):
+        if w not in d:
+            d[w] = []
+        d[w].append(next_)
+    return d
 
-
-  def print_mimic(mimic_dict, word):
+def print_mimic(mimic_dict, word):
     """Given mimic dict and start word, prints 200 random words."""
     msg = []
 
     for i in range(200):
-      l = mimic_dict.get(word, '')
-      w = random.choice(l)
-      msg = w
+        l = mimic_dict.get(word, '')
+
+        w = random.choice(l)
+        msg.append(w)
+        word = w
 
     pprint(' '.join(msg))
     return
 
-
-  # Provided main(), calls mimic_dict() and mimic()
-  def main():
+# Provided main(), calls mimic_dict() and mimic()
+def main():
     if len(sys.argv) != 2:
-      print('usage: ./mimic.py file-to-read')
-      sys.exit(1)
+        print('usage: ./mimic.py file-to-read')
+        sys.exit(1)
 
     dict = mimic_dict(sys.argv[1])
+
     print_mimic(dict, '')
 
-
-  if __name__ == '__main__':
+if __name__ == '__main__':
     main()
