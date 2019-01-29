@@ -34,7 +34,6 @@ Suggested milestones for incremental development:
  -Fix main() to use the extract_names list
 """
 
-
 def extract_names(filename):
     """
     Given a file name for baby.html, returns a list starting with the year string
@@ -46,6 +45,7 @@ def extract_names(filename):
 
 
 def main():
+    print('extract_names')
     # This command-line parsing code is provided.
     # Make a list of command line arguments, omitting the [0] element
     # which is the script itself.
