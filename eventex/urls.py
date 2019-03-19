@@ -19,6 +19,6 @@ from eventex.core import views as core_views
 from eventex.subscriptions.views import subscribe
 urlpatterns = {
     url(r'^$', core_views.home),
-    url('inscricao/', subscribe),
+    url(r'inscricao/', subscribe),
     url(r'^admin/', admin.site.urls),
 }
