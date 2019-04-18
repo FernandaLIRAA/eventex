@@ -2,7 +2,7 @@ Olá! Tudo bem?
 
 Muito obrigada por se inscrever no Eventex.
 
-estes forem os dados que você nos forneceu
+estes foram os dados que você nos forneceu
 em inscrição:
 
 Nome: {{ name }}
